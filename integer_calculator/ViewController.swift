@@ -23,8 +23,13 @@ class ViewController: UIViewController {
         let buttonContent: String = (sender.titleLabel?.text)!
         
         if buttonContent != "=" {
-            operations.append(buttonContent)
-            displayLabel.text = operations.joined(separator: " ")
+            if(buttonContent == "C") {
+                operations = []
+                displayLabel.text = "0"
+            } else {
+                operations.append(buttonContent)
+                displayLabel.text = operations.joined(separator: " ")
+            }
         } else {
             let opValue = performOperation(operations)
             operations = []
